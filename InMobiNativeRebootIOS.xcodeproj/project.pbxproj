@@ -29,6 +29,7 @@
 		D177887A1F56609B00A3761A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17788791F56609B00A3761A /* BannerViewController.m */; };
 		D177887D1F566F6A00A3761A /* InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D177887C1F566F6A00A3761A /* InterstitialViewController.m */; };
 		D199C4D32084A41700D6E64E /* InMobiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D199C4D22084A41700D6E64E /* InMobiSDK.framework */; };
+		D199C4D52087605600D6E64E /* 集成文档 in Resources */ = {isa = PBXBuildFile; fileRef = D199C4D42087605600D6E64E /* 集成文档 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		D177887B1F566F6A00A3761A /* InterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialViewController.h; sourceTree = "<group>"; };
 		D177887C1F566F6A00A3761A /* InterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialViewController.m; sourceTree = "<group>"; };
 		D199C4D22084A41700D6E64E /* InMobiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = InMobiSDK.framework; sourceTree = "<group>"; };
+		D199C4D42087605600D6E64E /* 集成文档 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "集成文档"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		352CFA541EA7933500187184 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D199C4D42087605600D6E64E /* 集成文档 */,
 				352CFA551EA7933500187184 /* MediaPlayer.framework */,
 			);
 			name = Frameworks;
@@ -234,6 +237,7 @@
 			files = (
 				35F42B811E9436EE00865D29 /* InFeedTableCell.xib in Resources */,
 				35366B931B4306CF002D32D1 /* Main.storyboard in Resources */,
+				D199C4D52087605600D6E64E /* 集成文档 in Resources */,
 				35A44B5D1D466D57007889E3 /* Images.xcassets in Resources */,
 				35366B981B4306CF002D32D1 /* LaunchScreen.xib in Resources */,
 				35366BD91B430783002D32D1 /* Base.lproj in Resources */,

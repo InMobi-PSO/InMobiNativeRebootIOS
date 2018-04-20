@@ -112,7 +112,7 @@ alpha:1.0]
             [self.navigationController pushViewController:self.InfeedVC animated:YES];
             break;
         case 1:
-            self.SplashVC.placementID = 1524675284764;
+            self.SplashVC.placementID = 1503896599914;
             [self.navigationController pushViewController:self.SplashVC animated:YES];
             break;
         case 2:
@@ -124,7 +124,7 @@ alpha:1.0]
             [self.navigationController pushViewController:self.BannerVC animated:YES];
             break;
         default:
-            self.InterstitialVC.placementID = 1506547086970;
+            self.InterstitialVC.placementID = 1504861055938;
             [self.navigationController pushViewController:self.InterstitialVC animated:YES];
             break;
     }

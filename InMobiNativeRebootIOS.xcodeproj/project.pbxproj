@@ -26,9 +26,9 @@
 		35B4E79E1D88316E00F27AEF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557B30D1BCDADC3005A71B5 /* AdSupport.framework */; };
 		35BD7EA61D880C00002BCA2E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BD7EA51D880C00002BCA2E /* WebKit.framework */; };
 		35F42B811E9436EE00865D29 /* InFeedTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357DE41A1E94108F00C11035 /* InFeedTableCell.xib */; };
+		D1291A1820886EA200801723 /* InMobiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1291A1720886EA200801723 /* InMobiSDK.framework */; };
 		D177887A1F56609B00A3761A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17788791F56609B00A3761A /* BannerViewController.m */; };
 		D177887D1F566F6A00A3761A /* InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D177887C1F566F6A00A3761A /* InterstitialViewController.m */; };
-		D199C4D32084A41700D6E64E /* InMobiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D199C4D22084A41700D6E64E /* InMobiSDK.framework */; };
 		D199C4D52087605600D6E64E /* 集成文档 in Resources */ = {isa = PBXBuildFile; fileRef = D199C4D42087605600D6E64E /* 集成文档 */; };
 /* End PBXBuildFile section */
 
@@ -62,11 +62,11 @@
 		35AD4D031EA6966700F2AEB7 /* PrerollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrerollViewController.h; sourceTree = "<group>"; };
 		35AD4D041EA6966700F2AEB7 /* PrerollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrerollViewController.m; sourceTree = "<group>"; };
 		35BD7EA51D880C00002BCA2E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D1291A1720886EA200801723 /* InMobiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = InMobiSDK.framework; sourceTree = "<group>"; };
 		D17788781F56609B00A3761A /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		D17788791F56609B00A3761A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		D177887B1F566F6A00A3761A /* InterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialViewController.h; sourceTree = "<group>"; };
 		D177887C1F566F6A00A3761A /* InterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialViewController.m; sourceTree = "<group>"; };
-		D199C4D22084A41700D6E64E /* InMobiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = InMobiSDK.framework; sourceTree = "<group>"; };
 		D199C4D42087605600D6E64E /* 集成文档 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "集成文档"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,7 @@
 				35BD7EA61D880C00002BCA2E /* WebKit.framework in Frameworks */,
 				3557B30C1BCDADB9005A71B5 /* libz.tbd in Frameworks */,
 				3557B30B1BCDADAC005A71B5 /* libsqlite3.0.tbd in Frameworks */,
-				D199C4D32084A41700D6E64E /* InMobiSDK.framework in Frameworks */,
+				D1291A1820886EA200801723 /* InMobiSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 		35366B7B1B4306CF002D32D1 = {
 			isa = PBXGroup;
 			children = (
-				D199C4D22084A41700D6E64E /* InMobiSDK.framework */,
+				D1291A1720886EA200801723 /* InMobiSDK.framework */,
 				35BD7EA51D880C00002BCA2E /* WebKit.framework */,
 				3557B30D1BCDADC3005A71B5 /* AdSupport.framework */,
 				3557B30A1BCDADAC005A71B5 /* libsqlite3.0.tbd */,
@@ -395,7 +395,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ubercab.UberClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inmobi.nativereboot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -423,7 +423,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ubercab.UberClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inmobi.nativereboot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

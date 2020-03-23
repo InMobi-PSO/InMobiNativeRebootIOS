@@ -1,233 +1,110 @@
 //
-//  SplashViewController.h
-//  InMobiSupply2.0
+//  SplashViewController.m
+//  ImmobiSDKDemo
 //
-//  Created by Ankit Mittal on 7/4/16.
-//  Copyright © 2016 Inmobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
 
 #import "SplashViewController.h"
+#import <InMobiSDK/IMNative.h>
 
-BOOL isSecondScreenDisplayed;
-
-@interface SplashViewController () <IMNativeDelegate>
-@property (nonatomic) CGRect screenRect;
-@property (nonatomic) CGFloat screenWidth;
-@property (nonatomic) CGFloat screenHeight;
-@property (nonatomic) CGFloat temp_screen;
-
-@property (nonatomic, strong) UIImageView *backgroundView;
-@property (nonatomic, strong) UIButton *show_button;
-@property (nonatomic,strong) UILabel *pw_label;
-@property (nonatomic,strong) UIView *SplashAdView;
-
+@interface SplashViewController ()<IMNativeDelegate>
+@property (nonatomic,strong) IMNative * splashNative;
+@property (nonatomic,strong) UIView * splashView;
+//当用户点击广告时，可能会展示一个新的页面，移除广告view时需要检查一下
+@property (nonatomic,assign) BOOL isSecondScreenDisplayed;
 @end
 
 @implementation SplashViewController
 
--(void)dealloc {
-    [self.InMobiNativeAd recyclePrimaryView];
-    self.InMobiNativeAd.delegate = nil;
-    self.InMobiNativeAd = nil;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    isSecondScreenDisplayed = NO;
-    _screenRect = [[UIScreen mainScreen] bounds];
-    _screenWidth = _screenRect.size.width;
-    _screenHeight = _screenRect.size.height;
-    
-    self.backgroundView = [[UIImageView alloc] init];
-    [self.backgroundView setImage:[UIImage imageNamed:@"app_back"]];
-    self.backgroundView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight);
-    self.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    [self.view addSubview:self.backgroundView];
-    [self.view sendSubviewToBack:self.backgroundView];
-    
-    //Please wait Label
-    _pw_label = [[UILabel alloc] initWithFrame:CGRectMake(((_screenWidth/2)-120),((_screenHeight*2/3)-60),240,80)];
-    _pw_label.textColor = [UIColor whiteColor];
-    _pw_label.backgroundColor = [UIColor clearColor];
-    _pw_label.layer.cornerRadius = 20.0f;
-    _pw_label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-    _pw_label.hidden = YES;
-    _pw_label.numberOfLines = 0;
-    _pw_label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_pw_label];
-    
-    _show_button = [[UIButton alloc] init];
-    _show_button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_show_button addTarget:self
-                     action:@selector(showAd)
-           forControlEvents:UIControlEventTouchUpInside];
-    
-    [_show_button setTitle:@"Show Splash Ad" forState:UIControlStateNormal];
-    _show_button.frame = CGRectMake(((_screenWidth/2)-80),((_screenHeight*4/5)-20),160,40);
-    _show_button.backgroundColor = [UIColor greenColor];
-    _show_button.layer.cornerRadius = 8.0f;
-    _show_button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-    self.show_button.hidden = true;
-    
-    [self.view addSubview:self.show_button];
-    [self.view bringSubviewToFront:self.show_button];
-    
-    self.InMobiNativeAd = [[IMNative alloc] initWithPlacementId:self.placementID];
-    self.InMobiNativeAd.delegate = self;
-    
-//    [self.InMobiNativeAd shouldOpenLandingPage:NO];
-    [self.InMobiNativeAd load];
-    [self performSelector:@selector(ShowIfSplashAdIsReady) withObject:NULL afterDelay:2.0];
-    
-    _SplashAdView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _screenWidth, _screenHeight)];
-    _SplashAdView.hidden = true;
-    [self.view addSubview:_SplashAdView];
-    [self.view bringSubviewToFront:_SplashAdView];
-    
+    self.title = @"Splash";
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.splashNative = [[IMNative alloc] initWithPlacementId:1585357393525 delegate:self];
+    [self.splashNative load];
+    self.isSecondScreenDisplayed = NO;
 }
 
--(void)viewDidAppear:(BOOL)animated{
+//sdk已经获取到了广告，正在下载素材
+-(void)nativeAdIsAvailable:(IMNative*)native{
+    NSLog(@"Splash nativeAdIsAvailable");
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(BOOL)shouldAutorotate{
-    return NO;
-}
-
--(UIInterfaceOrientationMask)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
--(void)ShowIfSplashAdIsReady{
-    if(self.InMobiNativeAd.isReady)
-    {
-        self.show_button.hidden = false;
-    }
-    else
-    {
-        [self ShowMessage:@"Not enough time to load ad" dismissAfter:2.0];
-    }
-}
-
--(void)showAd{
-    UIView* AdPrimaryViewOfCorrectWidth = [_InMobiNativeAd primaryViewOfWidth:_screenWidth];
-    [AdPrimaryViewOfCorrectWidth setBackgroundColor:[UIColor redColor]];
-    [_SplashAdView addSubview:AdPrimaryViewOfCorrectWidth];
-    self.navigationController.navigationBar.layer.zPosition = -1;
-    _SplashAdView.hidden = false;
-    self.show_button.hidden = true;
-    [self performSelector:@selector(dismissAd) withObject:NULL afterDelay:6.0];
-}
-
--(void)dismissAd{
-    if(isSecondScreenDisplayed){
-        NSLog(@"DO NOT DISMISS THE AD WHILE THE SCREEN IS BEING DISPLAYED");
-    }
-    else
-    {
-        _SplashAdView.hidden = true;
-        self.navigationController.navigationBar.layer.zPosition = 0;
-        [_InMobiNativeAd recyclePrimaryView];
-        _InMobiNativeAd = nil;
-        self.InMobiNativeAd = [[IMNative alloc] initWithPlacementId:self.placementID];
-        self.InMobiNativeAd.delegate = self;
-        [self.InMobiNativeAd load];
-    }
-}
-
-- (void)ShowMessage:(NSString *)message dismissAfter:(NSTimeInterval)interval
-{
-    _pw_label.text = message;
-    _pw_label.hidden = FALSE;
-    [self performSelector:@selector(dismissAfterDelay) withObject:nil afterDelay:interval];
-}
-
-- (void)dismissAfterDelay
-{
-    _pw_label.hidden = TRUE;
-    // [self dismissWithClickedButtonIndex:0 animated:YES];
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    
-    // Code here will execute before the rotation begins.
-    // Equivalent to placing it in the deprecated method -[willRotateToInterfaceOrientation:duration:]
-    _temp_screen = _screenHeight;
-    _screenHeight = _screenWidth;
-    _screenWidth = _temp_screen;
-    self.backgroundView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight);
-    self.pw_label.frame = CGRectMake(((_screenWidth/2)-120),((_screenHeight*2/3)-60),240,80);
-    _show_button.frame = CGRectMake(((_screenWidth/2)-80),((_screenHeight*4/5)-20),160,40);
-    
-    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        
-        // Place code here to perform animations during the rotation.
-        // You can pass nil or leave this block empty if not necessary.
-        
-        
-    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        
-        // Code here will execute after the rotation has finished.
-        // Equivalent to placing it in the deprecated method -[didRotateFromInterfaceOrientation:]
-        
-    }];
-}
-
-/*The native ad notifies its delegate that it is ready. Fetching publisher-specific ad asset content from native.adContent. The publisher will specify the format. If the publisher does not provide a format, no ad will be loaded.*/
+//sdk已经渲染好了广告，app可以展示了
 -(void)nativeDidFinishLoading:(IMNative*)native{
-    NSLog(@"Native Ad load Successful");
+    NSLog(@"Splash nativeDidFinishLoading");
+    self.splashView = [native primaryViewOfWidth:[UIScreen mainScreen].bounds.size.width];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.splashView];
+    [self performSelector:@selector(dismissAd) withObject:nil afterDelay:5];
 }
-/*The native ad notifies its delegate that an error has been encountered while trying to load the ad.Check IMRequestStatus.h for all possible errors.Try loading the ad again, later.*/
+-(void)dismissAd{
+    if (self.isSecondScreenDisplayed) {
+        NSLog(@"广告处于展示第二页面情况下，请勿移除广告");
+    }else{
+        [self.splashView removeFromSuperview];
+    }
+}
+//sdk加载广告失败
 -(void)native:(IMNative*)native didFailToLoadWithError:(IMRequestStatus*)error{
-    NSLog(@"Native Ad load Failed");
-    [self ShowMessage:@"No Fill OR Response Error" dismissAfter:2.0];
+    NSLog(@"Splash didFailToLoadWithError %@",error);
+    UIAlertController * alter = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:1];
+    UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"确定" style:0 handler:nil];
+    [alter addAction:alertAction];
+    [self presentViewController:alter animated:YES completion:nil];
 }
-/* Indicates that the native ad is going to present a screen. */ -(void)nativeWillPresentScreen:(IMNative*)native{
-    NSLog(@"Native Ad will present screen");
-    isSecondScreenDisplayed = YES;
+
+
+
+//调用getSignals后返回的signal
+-(void)native:(IMNative*)native gotSignals:(NSData*)signals{
+    NSLog(@"Splash gotSignals %@",signals);
 }
-/* Indicates that the native ad has presented a screen. */
+//调用getSignals后返回的signal
+-(void)native:(IMNative*)native failedToGetSignalsWithError:(IMRequestStatus*)status{
+    NSLog(@"Splash failedToGetSignalsWithError %@",status);
+}
+//当用户点击广告后，sdk将要展示一个全屏内容（不是广告将要显示的回调）
+-(void)nativeWillPresentScreen:(IMNative*)native{
+    NSLog(@"Splash nativeWillPresentScreen");
+    self.isSecondScreenDisplayed = YES;
+}
+//当用户点击广告后，sdk已经展示一个全屏内容（不是广告显示的回调）
 -(void)nativeDidPresentScreen:(IMNative*)native{
-    NSLog(@"Native Ad did present screen");
+    NSLog(@"Splash nativeDidPresentScreen");
 }
-/* Indicates that the native ad is going to dismiss the presented screen. */
+//当用户点击广告后，sdk展示全屏内容后，将要关闭全屏内容（不是广告将要关闭的回调）
 -(void)nativeWillDismissScreen:(IMNative*)native{
-    NSLog(@"Native Ad will dismiss screen");
-    isSecondScreenDisplayed = NO;
+    NSLog(@"Splash nativeWillDismissScreen");
+    self.isSecondScreenDisplayed = NO;
     [self dismissAd];
 }
-/* Indicates that the native ad has dismissed the presented screen. */
+//当用户点击广告后，sdk展示全屏内容后，已经关闭全屏内容（不是广告关闭的回调）
 -(void)nativeDidDismissScreen:(IMNative*)native{
-    NSLog(@"Native Ad did dismiss screen");
+    NSLog(@"Splash nativeDidDismissScreen");
 }
-/* Indicates that the user will leave the app. */
+//用户将要从广告中离开app
 -(void)userWillLeaveApplicationFromNative:(IMNative*)native{
-    NSLog(@"User leave");
+    NSLog(@"Splash userWillLeaveApplicationFromNative");
 }
-
--(void)native:(IMNative *)native didInteractWithParams:(NSDictionary *)params{
-    NSLog(@"User leave");
+//广告已经曝光
+-(void)nativeAdImpressed:(IMNative*)native{
+    NSLog(@"Splash nativeAdImpressed");
 }
-
--(void)nativeAdImpressed:(IMNative *)native{
-    NSLog(@"User leave");
+//用户点击了广告
+-(void)native:(IMNative*)native didInteractWithParams:(NSDictionary*)params{
+    NSLog(@"Splash didInteractWithParams %@",params);
 }
-
--(void)native:(IMNative *)native rewardActionCompletedWithRewards:(NSDictionary *)rewards{
-    NSLog(@"User leave");
+//sdk播放完了视频
+-(void)nativeDidFinishPlayingMedia:(IMNative*)native{
+    NSLog(@"Splash nativeDidFinishPlayingMedia");
 }
-
--(void)nativeDidFinishPlayingMedia:(IMNative *)native{
-    
+//用户点击了视频的跳过按钮
+-(void)userDidSkipPlayingMediaFromNative:(IMNative*)native{
+    NSLog(@"Splash userDidSkipPlayingMediaFromNative");
 }
-
+//当媒体声音变化时调用，audioStateMuted为YES代表声音被关掉，NO代表声音被打开
+-(void)native:(IMNative*)native adAudioStateChanged:(BOOL)audioStateMuted{
+    NSLog(@"Splash adAudioStateChanged");
+}
 @end

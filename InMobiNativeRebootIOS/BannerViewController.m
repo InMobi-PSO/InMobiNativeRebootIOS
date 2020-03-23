@@ -1,110 +1,77 @@
 //
-//  ViewController.m
-//  BannerSample
+//  BannerViewController.m
+//  ImmobiSDKDemo
 //
-//  Copyright © 2016 InMobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
-
-#ifndef INMOBI_BANNER_PLACEMENT
-#define INMOBI_BANNER_PLACEMENT     1502800773034
-#endif
 
 #import "BannerViewController.h"
-
-@interface BannerViewController ()
-
+#import <InMobiSDK/IMBanner.h>
+@interface BannerViewController ()<IMBannerDelegate>
+@property (nonatomic,strong) IMBanner * banner;
 @end
 
 @implementation BannerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-
-    /*
-     * Code to integrate an InMobi banner programmatically.
-     * Provide a frame to your banner according to your requirements.
-     */
-    
-    self.banner = [[IMBanner alloc] initWithFrame:CGRectMake(0, 400, 320, 50) placementId:INMOBI_BANNER_PLACEMENT];
-    
-    //Optional: set a delegate to be notified if the banner is loaded/failed etc.
-    self.banner.delegate = self;
-    
+    self.title = @"Banner";
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.banner = [[IMBanner alloc] initWithFrame:CGRectMake(0, 400, 320, 50) placementId:1584339357654 delegate:self];
     [self.banner load];
-    
     [self.view addSubview:self.banner];
-    
-    /*
-     * Code to integrate an InMobi banner via Interface Builder
-     */
-    
-//    self.banner.placementId = INMOBI_BANNER_PLACEMENT;
-//    [self.banner load];
-
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-#pragma mark Banner callbacks
-
-/**
- * Notifies the delegate that the banner has finished loading
- */
--(void)bannerDidFinishLoading:(IMBanner*)banner {
-    NSLog(@"InMobi Banner finished loading");
+//广告加载成功
+-(void)bannerDidFinishLoading:(IMBanner*)banner{
+    NSLog(@"Banner bannerDidFinishLoading");
 }
-/**
- * Notifies the delegate that the banner has failed to load with some error.
- */
--(void)banner:(IMBanner*)banner didFailToLoadWithError:(IMRequestStatus*)error {
-    NSLog(@"InMobi Banner failed to load with error %@", error);
+//广告加载失败
+-(void)banner:(IMBanner*)banner didFailToLoadWithError:(IMRequestStatus*)error{
+    NSLog(@"Banner didFailToLoadWithError %@",error);
+    UIAlertController * alter = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:1];
+    UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"确定" style:0 handler:nil];
+    [alter addAction:alertAction];
+    [self presentViewController:alter animated:YES completion:nil];
 }
-/**
- * Notifies the delegate that the banner was interacted with.
- */
--(void)banner:(IMBanner*)banner didInteractWithParams:(NSDictionary*)params {
-    NSLog(@"InMobi Banner did interact with params : %@", params);
+//当用户调用getSignals方法后，给用户的回调
+-(void)banner:(IMBanner*)banner gotSignals:(NSData*)signals{
+    NSLog(@"Banner gotSignals %@",signals);
 }
-/**
- * Notifies the delegate that the user would be taken out of the application context.
- */
--(void)userWillLeaveApplicationFromBanner:(IMBanner*)banner {
-    NSLog(@"User will leave application from InMobi Banner");
+//当用户调用getSignals方法后，没有找到合适的signal
+-(void)banner:(IMBanner*)banner failedToGetSignalsWithError:(IMRequestStatus*)status{
+    NSLog(@"Banner failedToGetSignalsWithError %@",status);
 }
-/**
- * Notifies the delegate that the banner would be presenting a full screen content.
- */
--(void)bannerWillPresentScreen:(IMBanner*)banner {
-    NSLog(@"InMobi Banner will present a screen");
+//用户点击了广告
+-(void)banner:(IMBanner*)banner didInteractWithParams:(NSDictionary*)params{
+    NSLog(@"Banner didInteractWithParams %@",params);
 }
-/**
- * Notifies the delegate that the banner has finished presenting screen.
- */
--(void)bannerDidPresentScreen:(IMBanner*)banner {
-    NSLog(@"InMobi Banner finished presenting a screen");
+//用户点击了广告，将要离开app
+-(void)userWillLeaveApplicationFromBanner:(IMBanner*)banner{
+    NSLog(@"Banner userWillLeaveApplicationFromBanner");
 }
-/**
- * Notifies the delegate that the banner will start dismissing the presented screen.
- */
--(void)bannerWillDismissScreen:(IMBanner*)banner {
-    NSLog(@"InMobi Banner will dismiss a presented screen");
+//banner将要展示一个全屏的内容
+-(void)bannerWillPresentScreen:(IMBanner*)banner{
+    NSLog(@"Banner bannerWillPresentScreen");
 }
-/**
- * Notifies the delegate that the banner has dismissed the presented screen.
- */
--(void)bannerDidDismissScreen:(IMBanner*)banner {
-    NSLog(@"InMobi Banner dismissed a presented screen");
+//banner已经展示了一个全屏的内容
+-(void)bannerDidPresentScreen:(IMBanner*)banner{
+    NSLog(@"Banner bannerDidPresentScreen");
 }
-/**
- * Notifies the delegate that the user has completed the action to be incentivised with.
- */
--(void)banner:(IMBanner*)banner rewardActionCompletedWithRewards:(NSDictionary*)rewards {
-    NSLog(@"InMobi Banner rewarded action completed. Rewards : %@", rewards);
+//banner将要移除全屏的内容
+-(void)bannerWillDismissScreen:(IMBanner*)banner{
+    NSLog(@"Banner bannerWillDismissScreen");
 }
-
+//banner已经移除全屏的内容
+-(void)bannerDidDismissScreen:(IMBanner*)banner{
+    NSLog(@"Banner bannerDidDismissScreen");
+}
+//banner奖励视频，用户已经完成
+-(void)banner:(IMBanner*)banner rewardActionCompletedWithRewards:(NSDictionary*)rewards{
+    NSLog(@"Banner rewardActionCompletedWithRewards %@",rewards);
+}
 
 @end
+

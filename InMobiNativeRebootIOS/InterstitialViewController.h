@@ -1,15 +1,17 @@
 //
 //  InterstitialViewController.h
-//  InMobiNativeRebootIOS
+//  ImmobiSDKDemo
 //
-//  Copyright © 2016 InMobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <InMobiSDK/InMobiSDK.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface InterstitialViewController : UIViewController
-@property (nonatomic) long long placementID;
 
 @end
 
+NS_ASSUME_NONNULL_END

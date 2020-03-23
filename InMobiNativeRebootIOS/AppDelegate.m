@@ -1,128 +1,116 @@
 //
 //  AppDelegate.m
-//  TodoList
+//  ImmobiSDKDemo
 //
-//  Created by Ankit Mittal on 27/04/15.
-//  Copyright (c) 2015 Inmobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#define UIColorFromRGB(rgbValue) \
-[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
-blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
-alpha:1.0]
-
-typedef NS_ENUM(NSInteger, IMPrivateLogLevel) {
-    kIMPrivateLogLevelNone,
-    kIMPrivateLogLevelError,
-    kIMPrivateLogLevelDebug,
-    kIMPrivateLogLevelInternal
-};
-
-
-@interface IMPublisherProvidedInfo : NSObject
-+ (void)setLogLevel:(IMPrivateLogLevel)logLevel;
-
-@end
-
-@interface AppDelegate ()
-
+#import "MainTableViewController.h"
+@import InMobiSDK;
+@interface AppDelegate ()<IMNativeDelegate>
+@property (nonatomic,strong) UIView * splashView;
+@property (nonatomic,strong) IMNative * splashNative;
+//当用户点击广告时，可能会展示一个新的页面，移除广告view时需要检查一下
+@property (nonatomic,assign) BOOL isSecondScreenDisplayed;
 @end
 
 @implementation AppDelegate
 
 
-void exceptionHandler (NSException *ex) {
-    NSLog(@"stack trace : %@", ex.callStackSymbols);
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-//    NSDictionary* dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"InMobi_com.config.store_ads_config"];
-//    NSMutableDictionary* muDict = [NSMutableDictionary dictionaryWithDictionary:dict];
-//    [muDict setObject:@"https://i.w.inmobi.com/showad.asm" forKey:@"url"];
-//    [[NSUserDefaults standardUserDefaults] setObject:muDict forKey:@"InMobi_com.config.store_ads_config"];
-//    
-//    [IMSdk initWithAccountID:@"12345678809987654321"];
-     [IMSdk initWithAccountID:@"6bc86aa10dce4c359d9f98b4cf193de9"];
-//    [IMSdk initWithAccountID:@"6bc86aa10dce4c359d9f98b4cf193de9" consentDictionary:@{IM_GDPR_CONSENT_AVAILABLE:@YES,@"gdpr":@1}]; （欧盟流量必须使用此初始化方法）
-    
-    
-//    12345678809987654321
-    
-    [IMSdk setLogLevel:kIMSDKLogLevelDebug];
-    
+    [IMSdk initWithAccountID:@"ed874099d53e417fa4e70291da2462f5"];
+       
+    //（欧盟流量必须使用此初始化方法）
+//    [IMSdk initWithAccountID:@"ed874099d53e417fa4e70291da2462f5" consentDictionary:@{IM_GDPR_CONSENT_AVAILABLE:@"TRUE",@"gdpr":@"1"}];
+
     [IMSdk setGender:kIMSDKGenderFemale];
-    [IMSdk setAgeGroup:kIMSDKAgeGroupBetween25And29];
+    [IMSdk setAge:20];
     
-  //  [IMSdk setAdServerUrl:@"http://im1544-x0.local:9090/1111.json"];
-    [IMPublisherProvidedInfo setLogLevel:kIMPrivateLogLevelInternal];
+    if (0) {
+        self.splashNative = [[IMNative alloc] initWithPlacementId:1585357393525 delegate:self];
+        [self.splashNative load];
+        self.isSecondScreenDisplayed = NO;
+    }
     
-    NSString *encryption = @"NO";
-    [[NSUserDefaults standardUserDefaults] setObject: encryption forKey:@"im_network_encryption"];
-    
-
-  //  [IMSdk setAdServerUrl:@"https://strands-demo.inmobi.com/Video20_server/index.php"];
-   //[IMSdk setAdServerUrl:@"http://IM1544-X0.local:9090/video20/php_server/index.php"];
-   // [IMSdk setAdServerUrl:@"http://im1544-x0.local:1337/"];
-    
- //    [IMSdk setAdServerUrl:@"http://10.14.144.182/showad.asm"];
-
- //   [IMSdk setAdServerUrl:@"https://i.w.inmobi.com/showad.asm"];
-    
-//    [IMSdk setIV:@"abcdefghijklmnop"];
-//    [IMSdk setAESKey:@"abcdefghijklmnop"];
-    
-    // Uncomment to change the background color of navigation bar
-     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x505A5B)];
-    
-    // Uncomment to change the color of back button
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
-    // Uncomment to assign a custom background image
-   //  [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bg_ios7.png"] forBarMetrics:UIBarMetricsDefault];
-    
-    // Uncomment to change the back indicator image
-    /*
-     [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back_btn.png"]];
-     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back_btn.png"]];
-     */
-    
-    // Uncomment to change the font style of the title
-    
-     NSShadow *shadow = [[NSShadow alloc] init];
-     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-     shadow.shadowOffset = CGSizeMake(0, 1);
-     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-     [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
-     shadow, NSShadowAttributeName,
-     [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
-    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[MainTableViewController alloc] init]];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+//sdk已经获取到了广告，正在下载素材
+-(void)nativeAdIsAvailable:(IMNative*)native{
+    NSLog(@"Splash nativeAdIsAvailable");
 }
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//调用getSignals后返回的signal
+-(void)native:(IMNative*)native gotSignals:(NSData*)signals{
+    NSLog(@"Splash gotSignals %@",signals);
 }
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//调用getSignals后返回的signal
+-(void)native:(IMNative*)native failedToGetSignalsWithError:(IMRequestStatus*)status{
+    NSLog(@"Splash failedToGetSignalsWithError %@",status);
 }
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//sdk已经渲染好了广告，app可以展示了
+-(void)nativeDidFinishLoading:(IMNative*)native{
+    NSLog(@"Splash nativeDidFinishLoading");
+    self.splashView = [native primaryViewOfWidth:[UIScreen mainScreen].bounds.size.width];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.splashView];
+    [self performSelector:@selector(dismissAd) withObject:nil afterDelay:5];
 }
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+-(void)dismissAd{
+    if (self.isSecondScreenDisplayed) {
+        NSLog(@"广告处于展示第二页面情况下，请勿移除广告");
+    }else{
+        [self.splashView removeFromSuperview];
+    }
 }
-
-
+//sdk加载广告失败
+-(void)native:(IMNative*)native didFailToLoadWithError:(IMRequestStatus*)error{
+    NSLog(@"Splash didFailToLoadWithError %@",error);
+}
+//当用户点击广告后，sdk将要展示一个全屏内容（不是广告将要显示的回调）
+-(void)nativeWillPresentScreen:(IMNative*)native{
+    NSLog(@"Splash nativeWillPresentScreen");
+    self.isSecondScreenDisplayed = YES;
+}
+//当用户点击广告后，sdk已经展示一个全屏内容（不是广告显示的回调）
+-(void)nativeDidPresentScreen:(IMNative*)native{
+    NSLog(@"Splash nativeDidPresentScreen");
+}
+//当用户点击广告后，sdk展示全屏内容后，将要关闭全屏内容（不是广告将要关闭的回调）
+-(void)nativeWillDismissScreen:(IMNative*)native{
+    NSLog(@"Splash nativeWillDismissScreen");
+    self.isSecondScreenDisplayed = NO;
+    [self dismissAd];
+}
+//当用户点击广告后，sdk展示全屏内容后，已经关闭全屏内容（不是广告关闭的回调）
+-(void)nativeDidDismissScreen:(IMNative*)native{
+    NSLog(@"Splash nativeDidDismissScreen");
+}
+//用户将要从广告中离开app
+-(void)userWillLeaveApplicationFromNative:(IMNative*)native{
+    NSLog(@"Splash userWillLeaveApplicationFromNative");
+}
+//广告已经曝光
+-(void)nativeAdImpressed:(IMNative*)native{
+    NSLog(@"Splash nativeAdImpressed");
+}
+//用户点击了广告
+-(void)native:(IMNative*)native didInteractWithParams:(NSDictionary*)params{
+    NSLog(@"Splash didInteractWithParams %@",params);
+}
+//sdk播放完了视频
+-(void)nativeDidFinishPlayingMedia:(IMNative*)native{
+    NSLog(@"Splash nativeDidFinishPlayingMedia");
+}
+//用户点击了视频的跳过按钮
+-(void)userDidSkipPlayingMediaFromNative:(IMNative*)native{
+    NSLog(@"Splash userDidSkipPlayingMediaFromNative");
+}
+//当媒体声音变化时调用，audioStateMuted为YES代表声音被关掉，NO代表声音被打开
+-(void)native:(IMNative*)native adAudioStateChanged:(BOOL)audioStateMuted{
+    NSLog(@"Splash adAudioStateChanged");
+}
 @end

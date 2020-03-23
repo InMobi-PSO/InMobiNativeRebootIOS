@@ -1,15 +1,17 @@
 //
 //  SplashViewController.h
-//  InMobiSupply2.0
+//  ImmobiSDKDemo
 //
-//  Created by Ankit Mittal on 7/4/16.
-//  Copyright © 2016 Inmobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <InMobiSDK/InMobiSDK.h>
 
-@interface SplashViewController : UIViewController <IMNativeDelegate>
-@property(nonatomic,strong) IMNative *InMobiNativeAd;
-@property (nonatomic) long long placementID;
+NS_ASSUME_NONNULL_BEGIN
+
+@interface SplashViewController : UIViewController
+
 @end
+
+NS_ASSUME_NONNULL_END

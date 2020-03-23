@@ -1,108 +1,85 @@
 //
-//  ViewController.m
-//  InterstitialSample
+//  InterstitialViewController.m
+//  ImmobiSDKDemo
 //
-//  Copyright © 2016 InMobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
-
-
-
-#ifndef INMOBI_INTERSTITIAL_PLACEMENT
-#define INMOBI_INTERSTITIAL_PLACEMENT   1504861055938 //interstitial
-                                                        //1505729201415 rewardVideo
-#endif
 
 #import "InterstitialViewController.h"
-
-@interface InterstitialViewController () <IMInterstitialDelegate>
-@property (nonatomic, strong) IMInterstitial* interstitial;
+#import <InMobiSDK/IMInterstitial.h>
+@interface InterstitialViewController ()<IMInterstitialDelegate>
+@property (nonatomic,strong) IMInterstitial * interstitial;
 @end
 
 @implementation InterstitialViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    self.interstitial = [[IMInterstitial alloc] initWithPlacementId:INMOBI_INTERSTITIAL_PLACEMENT delegate:self];
+    self.title = @"Interstitial";
+    self.interstitial = [[IMInterstitial alloc] initWithPlacementId:1583890456405 delegate:self];
     [self.interstitial load];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//app调用getSignals后，给的回调
+-(void)interstitial:(IMInterstitial*)interstitial gotSignals:(NSData*)signals{
+    NSLog(@"Interstitial gotSignals %@",signals);
 }
-
-/**
- * Notifies the delegate that the ad server has returned an ad. Assets are not yet available.
- * Please use interstitialDidFinishLoading: to receive a callback when assets are also available.
- */
--(void)interstitialDidReceiveAd:(IMInterstitial *)interstitial {
-    NSLog(@"InMobi Interstitial received an ad");
+//app调用getSignals后，回调失败
+-(void)interstitial:(IMInterstitial*)interstitial failedToGetSignalsWithError:(IMRequestStatus*)status{
+    NSLog(@"Interstitial failedToGetSignalsWithError %@",status);
 }
-/**
- * Notifies the delegate that the interstitial has finished loading and can be shown instantly.
- */
--(void)interstitialDidFinishLoading:(IMInterstitial*)interstitial {
-    NSLog(@"InMobi Interstitial finished loading");
+//sdk已经收到了广告，正在加载素材中
+-(void)interstitialDidReceiveAd:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial interstitialDidReceiveAd");
+}
+//广告加载成功，可以显示了
+-(void)interstitialDidFinishLoading:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial interstitialDidFinishLoading");
     if (interstitial.isReady) {
         [interstitial showFromViewController:self];
     }
 }
-/**
- * Notifies the delegate that the interstitial has failed to load with some error.
- */
--(void)interstitial:(IMInterstitial*)interstitial didFailToLoadWithError:(IMRequestStatus*)error {
-    NSLog(@"InMobi Interstitial failed to load with error : %@", error);
+//广告加载失败
+-(void)interstitial:(IMInterstitial*)interstitial didFailToLoadWithError:(IMRequestStatus *)error{
+    NSLog(@"Interstitial didFailToLoadWithError %@",error);
+    UIAlertController * alter = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:1];
+    UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"确定" style:0 handler:nil];
+    [alter addAction:alertAction];
+    [self presentViewController:alter animated:YES completion:nil];
 }
-/**
- * Notifies the delegate that the interstitial would be presented.
- */
--(void)interstitialWillPresent:(IMInterstitial*)interstitial {
-    NSLog(@"InMobi Interstitial will be presented");
+//interstitial广告将要显示？？？？？
+-(void)interstitialWillPresent:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial interstitialWillPresent");
 }
-/**
- * Notifies the delegate that the interstitial has been presented.
- */
--(void)interstitialDidPresent:(IMInterstitial *)interstitial {
-    NSLog(@"InMobi Interstitial has been presented");
+//interstitial广告已经显示????
+-(void)interstitialDidPresent:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial interstitialDidPresent");
 }
-/**
- * Notifies the delegate that the interstitial has failed to present with some error.
- */
--(void)interstitial:(IMInterstitial*)interstitial didFailToPresentWithError:(IMRequestStatus*)error {
-    NSLog(@"InMobi Interstitial has failed to present with error : %@", error);
+//interstitial广告已经显示失败
+-(void)interstitial:(IMInterstitial*)interstitial didFailToPresentWithError:(IMRequestStatus*)error{
+    NSLog(@"Interstitial didFailToPresentWithError %@",error);
 }
-/**
- * Notifies the delegate that the interstitial will be dismissed.
- */
--(void)interstitialWillDismiss:(IMInterstitial*)interstitial {
-    NSLog(@"InMobi Interstitial will be dismissed");
+//interstitial广告将要消失
+-(void)interstitialWillDismiss:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial interstitialWillDismiss");
 }
-/**
- * Notifies the delegate that the interstitial has been dismissed.
- */
--(void)interstitialDidDismiss:(IMInterstitial*)interstitial {
-    NSLog(@"InMobi Interstitial has been dismissed");
+//interstitial广告已经消失
+-(void)interstitialDidDismiss:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial interstitialDidDismiss");
 }
-/**
- * Notifies the delegate that the interstitial has been interacted with.
- */
--(void)interstitial:(IMInterstitial*)interstitial didInteractWithParams:(NSDictionary*)params {
-    NSLog(@"InMobi Interstitial did interact with params : %@", params);
+//用户点击了广告
+-(void)interstitial:(IMInterstitial*)interstitial didInteractWithParams:(NSDictionary*)params{
+    NSLog(@"Interstitial didInteractWithParams %@",params);
 }
-/**
- * Notifies the delegate that the user has performed the action to be incentivised with.
- */
--(void)interstitial:(IMInterstitial*)interstitial rewardActionCompletedWithRewards:(NSDictionary*)rewards {
-    NSLog(@"InMobi Interstitial completed rewarded action. Rewards : %@", rewards);
+//奖励视频已经结束
+-(void)interstitial:(IMInterstitial*)interstitial rewardActionCompletedWithRewards:(NSDictionary*)rewards{
+    NSLog(@"Interstitial rewardActionCompletedWithRewards %@",rewards);
 }
-/**
- * Notifies the delegate that the user will leave application context.
- */
--(void)userWillLeaveApplicationFromInterstitial:(IMInterstitial*)interstitial {
-    NSLog(@"User will leave the application from InMobi Interstitial");
+//用户点击了广告，用户将要离开app
+-(void)userWillLeaveApplicationFromInterstitial:(IMInterstitial*)interstitial{
+    NSLog(@"Interstitial userWillLeaveApplicationFromInterstitial");
 }
 
 @end

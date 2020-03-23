@@ -1,19 +1,17 @@
 //
 //  BannerViewController.h
-//  InMobiNativeRebootIOS
+//  ImmobiSDKDemo
 //
-//  Copyright © 2016 InMobi. All rights reserved.
+//  Created by Westy.zhang on 2020/3/20.
+//  Copyright © 2020 Westy.zhang. All rights reserved.
 //
-
-//@import InMobiSDK.IMBanner;
-//@import InMobiSDK.IMBannerDelegate;
 
 #import <UIKit/UIKit.h>
-#import <InMobiSDK/InMobiSDK.h>
 
-@interface BannerViewController : UIViewController <IMBannerDelegate>
-@property (nonatomic, strong) IMBanner *banner;
-@property (nonatomic) long long placementID;
+NS_ASSUME_NONNULL_BEGIN
+
+@interface BannerViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

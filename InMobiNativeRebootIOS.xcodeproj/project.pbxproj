@@ -7,65 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352596461D75953100AD6BBA /* InfeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352596431D75953100AD6BBA /* InfeedViewController.m */; };
-		352CFA531EA7919100187184 /* UINavigationController+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 352CFA521EA7919100187184 /* UINavigationController+Orientation.m */; };
+		1C128EDB2428B90000744D3F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C128EDA2428B8ED00744D3F /* libsqlite3.0.tbd */; };
+		1C128EDC2428B90B00744D3F /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AE6E8D224B2D4500B382E3 /* libxml2.tbd */; };
+		1C128EDE2428B91B00744D3F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C128EDD2428B91300744D3F /* libz.tbd */; };
+		1C128EE02428B92500744D3F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C128EDF2428B92500744D3F /* WebKit.framework */; };
+		1C128EE22428BA7100744D3F /* InMobiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C128EE12428BA7100744D3F /* InMobiSDK.framework */; };
+		1C128EF12428BB4300744D3F /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EE32428BB4100744D3F /* RewardViewController.m */; };
+		1C128EF22428BB4300744D3F /* InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EED2428BB4200744D3F /* InterstitialViewController.m */; };
+		1C128EF32428BB4300744D3F /* PrerollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EEF2428BB4200744D3F /* PrerollViewController.m */; };
+		1C128EF42428BB4300744D3F /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EE82428BB4200744D3F /* SplashViewController.m */; };
+		1C128EF52428BB4300744D3F /* InfeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EEA2428BB4200744D3F /* InfeedTableViewController.m */; };
+		1C128EF62428BB4300744D3F /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EE72428BB4200744D3F /* BannerViewController.m */; };
+		1C128EF72428BB4300744D3F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EEB2428BB4200744D3F /* MainTableViewController.m */; };
 		35366B8A1B4306CF002D32D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35366B891B4306CF002D32D1 /* main.m */; };
 		35366B8D1B4306CF002D32D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35366B8C1B4306CF002D32D1 /* AppDelegate.m */; };
-		35366B931B4306CF002D32D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35366B911B4306CF002D32D1 /* Main.storyboard */; };
-		35366B981B4306CF002D32D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35366B961B4306CF002D32D1 /* LaunchScreen.xib */; };
 		35366BD91B430783002D32D1 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 35366BC91B430783002D32D1 /* Base.lproj */; };
 		3554C4D51D2BB54A00AE6946 /* InFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3554C4D21D2BB54A00AE6946 /* InFeedTableCell.m */; };
-		3554C4D61D2BB54A00AE6946 /* SampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3554C4D41D2BB54A00AE6946 /* SampleData.m */; };
-		3557B30B1BCDADAC005A71B5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557B30A1BCDADAC005A71B5 /* libsqlite3.0.tbd */; };
-		3557B30C1BCDADB9005A71B5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557B3081BCDAD9D005A71B5 /* libz.tbd */; };
-		357DE4161E940E1B00C11035 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357DE4151E940E1B00C11035 /* BaseTableViewController.m */; };
-		357DE41C1E942F1C00C11035 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357DE4181E940E6100C11035 /* SplashViewController.m */; };
+		3554C4D61D2BB54A00AE6946 /* InfeedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3554C4D41D2BB54A00AE6946 /* InfeedData.m */; };
 		35A44B5D1D466D57007889E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A44B5C1D466D57007889E3 /* Images.xcassets */; };
-		35AD4D051EA6966700F2AEB7 /* PrerollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AD4D041EA6966700F2AEB7 /* PrerollViewController.m */; };
-		35B4E79E1D88316E00F27AEF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557B30D1BCDADC3005A71B5 /* AdSupport.framework */; };
-		35BD7EA61D880C00002BCA2E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BD7EA51D880C00002BCA2E /* WebKit.framework */; };
 		35F42B811E9436EE00865D29 /* InFeedTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357DE41A1E94108F00C11035 /* InFeedTableCell.xib */; };
-		D172C712228D68AB00766736 /* InMobiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D172C711228D68AB00766736 /* InMobiSDK.framework */; };
-		D177887A1F56609B00A3761A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17788791F56609B00A3761A /* BannerViewController.m */; };
-		D177887D1F566F6A00A3761A /* InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D177887C1F566F6A00A3761A /* InterstitialViewController.m */; };
-		D1AE6E8E224B2D4500B382E3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AE6E8D224B2D4500B382E3 /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		352596431D75953100AD6BBA /* InfeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfeedViewController.m; sourceTree = "<group>"; };
-		352596451D75953100AD6BBA /* InfeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfeedViewController.h; sourceTree = "<group>"; };
-		352CFA511EA7919100187184 /* UINavigationController+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Orientation.h"; sourceTree = "<group>"; };
-		352CFA521EA7919100187184 /* UINavigationController+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Orientation.m"; sourceTree = "<group>"; };
+		1C128EDA2428B8ED00744D3F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		1C128EDD2428B91300744D3F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1C128EDF2428B92500744D3F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1C128EE12428BA7100744D3F /* InMobiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = InMobiSDK.framework; sourceTree = "<group>"; };
+		1C128EE32428BB4100744D3F /* RewardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
+		1C128EE42428BB4100744D3F /* PrerollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrerollViewController.h; sourceTree = "<group>"; };
+		1C128EE52428BB4200744D3F /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		1C128EE62428BB4200744D3F /* InfeedTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfeedTableViewController.h; sourceTree = "<group>"; };
+		1C128EE72428BB4200744D3F /* BannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
+		1C128EE82428BB4200744D3F /* SplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		1C128EE92428BB4200744D3F /* BannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
+		1C128EEA2428BB4200744D3F /* InfeedTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfeedTableViewController.m; sourceTree = "<group>"; };
+		1C128EEB2428BB4200744D3F /* MainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		1C128EEC2428BB4200744D3F /* SplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		1C128EED2428BB4200744D3F /* InterstitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterstitialViewController.m; sourceTree = "<group>"; };
+		1C128EEE2428BB4200744D3F /* InterstitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterstitialViewController.h; sourceTree = "<group>"; };
+		1C128EEF2428BB4200744D3F /* PrerollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrerollViewController.m; sourceTree = "<group>"; };
+		1C128EF02428BB4300744D3F /* RewardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
 		35366B881B4306CF002D32D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35366B891B4306CF002D32D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		35366B8B1B4306CF002D32D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35366B8C1B4306CF002D32D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		35366B921B4306CF002D32D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		35366B971B4306CF002D32D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		35366BC91B430783002D32D1 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		3554C4D11D2BB54A00AE6946 /* InFeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InFeedTableCell.h; sourceTree = "<group>"; };
 		3554C4D21D2BB54A00AE6946 /* InFeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InFeedTableCell.m; sourceTree = "<group>"; };
-		3554C4D31D2BB54A00AE6946 /* SampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleData.h; sourceTree = "<group>"; };
-		3554C4D41D2BB54A00AE6946 /* SampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleData.m; sourceTree = "<group>"; };
-		3557B3081BCDAD9D005A71B5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		3557B30A1BCDADAC005A71B5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		3557B30D1BCDADC3005A71B5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		357DE4141E940E1B00C11035 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		357DE4151E940E1B00C11035 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
-		357DE4171E940E6100C11035 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
-		357DE4181E940E6100C11035 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		3554C4D31D2BB54A00AE6946 /* InfeedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfeedData.h; sourceTree = "<group>"; };
+		3554C4D41D2BB54A00AE6946 /* InfeedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfeedData.m; sourceTree = "<group>"; };
 		357DE41A1E94108F00C11035 /* InFeedTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InFeedTableCell.xib; sourceTree = "<group>"; };
-		357F97951E940C7400819391 /* InMobiNativeRebootIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InMobiNativeRebootIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		357F97951E940C7400819391 /* ImmobiSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImmobiSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A44B5C1D466D57007889E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		35AD4D031EA6966700F2AEB7 /* PrerollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrerollViewController.h; sourceTree = "<group>"; };
-		35AD4D041EA6966700F2AEB7 /* PrerollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrerollViewController.m; sourceTree = "<group>"; };
-		35BD7EA51D880C00002BCA2E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		D172C711228D68AB00766736 /* InMobiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = InMobiSDK.framework; sourceTree = "<group>"; };
-		D17788781F56609B00A3761A /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
-		D17788791F56609B00A3761A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
-		D177887B1F566F6A00A3761A /* InterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialViewController.h; sourceTree = "<group>"; };
-		D177887C1F566F6A00A3761A /* InterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialViewController.m; sourceTree = "<group>"; };
-		D19E47A22148CA3100B5AD72 /* InMobiNativeRebootIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InMobiNativeRebootIOS.entitlements; sourceTree = "<group>"; };
 		D1AE6E8D224B2D4500B382E3 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -74,12 +67,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1AE6E8E224B2D4500B382E3 /* libxml2.tbd in Frameworks */,
-				35B4E79E1D88316E00F27AEF /* AdSupport.framework in Frameworks */,
-				35BD7EA61D880C00002BCA2E /* WebKit.framework in Frameworks */,
-				3557B30C1BCDADB9005A71B5 /* libz.tbd in Frameworks */,
-				3557B30B1BCDADAC005A71B5 /* libsqlite3.0.tbd in Frameworks */,
-				D172C712228D68AB00766736 /* InMobiSDK.framework in Frameworks */,
+				1C128EDB2428B90000744D3F /* libsqlite3.0.tbd in Frameworks */,
+				1C128EE22428BA7100744D3F /* InMobiSDK.framework in Frameworks */,
+				1C128EDE2428B91B00744D3F /* libz.tbd in Frameworks */,
+				1C128EE02428B92500744D3F /* WebKit.framework in Frameworks */,
+				1C128EDC2428B90B00744D3F /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +81,9 @@
 		352CFA541EA7933500187184 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C128EDF2428B92500744D3F /* WebKit.framework */,
+				1C128EDD2428B91300744D3F /* libz.tbd */,
+				1C128EDA2428B8ED00744D3F /* libsqlite3.0.tbd */,
 				D1AE6E8D224B2D4500B382E3 /* libxml2.tbd */,
 			);
 			name = Frameworks;
@@ -97,13 +92,8 @@
 		35366B7B1B4306CF002D32D1 = {
 			isa = PBXGroup;
 			children = (
-				D172C711228D68AB00766736 /* InMobiSDK.framework */,
-				35BD7EA51D880C00002BCA2E /* WebKit.framework */,
-				3557B30D1BCDADC3005A71B5 /* AdSupport.framework */,
-				3557B30A1BCDADAC005A71B5 /* libsqlite3.0.tbd */,
-				3557B3081BCDAD9D005A71B5 /* libz.tbd */,
 				35366B861B4306CF002D32D1 /* InMobiNativeRebootIOS */,
-				357F97951E940C7400819391 /* InMobiNativeRebootIOS.app */,
+				357F97951E940C7400819391 /* ImmobiSDK.app */,
 				352CFA541EA7933500187184 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -111,15 +101,26 @@
 		35366B861B4306CF002D32D1 /* InMobiNativeRebootIOS */ = {
 			isa = PBXGroup;
 			children = (
-				D19E47A22148CA3100B5AD72 /* InMobiNativeRebootIOS.entitlements */,
 				35A44B5C1D466D57007889E3 /* Images.xcassets */,
 				3554C4D01D2BB53700AE6946 /* DataObjects */,
-				3554C4B51D2A89F000AE6946 /* Experience */,
 				35366BC91B430783002D32D1 /* Base.lproj */,
 				35366B8B1B4306CF002D32D1 /* AppDelegate.h */,
 				35366B8C1B4306CF002D32D1 /* AppDelegate.m */,
-				35366B911B4306CF002D32D1 /* Main.storyboard */,
-				35366B961B4306CF002D32D1 /* LaunchScreen.xib */,
+				1C128EE92428BB4200744D3F /* BannerViewController.h */,
+				1C128EE72428BB4200744D3F /* BannerViewController.m */,
+				1C128EE62428BB4200744D3F /* InfeedTableViewController.h */,
+				1C128EEA2428BB4200744D3F /* InfeedTableViewController.m */,
+				1C128EEE2428BB4200744D3F /* InterstitialViewController.h */,
+				1C128EED2428BB4200744D3F /* InterstitialViewController.m */,
+				1C128EE52428BB4200744D3F /* MainTableViewController.h */,
+				1C128EEB2428BB4200744D3F /* MainTableViewController.m */,
+				1C128EE42428BB4100744D3F /* PrerollViewController.h */,
+				1C128EEF2428BB4200744D3F /* PrerollViewController.m */,
+				1C128EF02428BB4300744D3F /* RewardViewController.h */,
+				1C128EE32428BB4100744D3F /* RewardViewController.m */,
+				1C128EEC2428BB4200744D3F /* SplashViewController.h */,
+				1C128EE82428BB4200744D3F /* SplashViewController.m */,
+				1C128EE12428BA7100744D3F /* InMobiSDK.framework */,
 				35366B871B4306CF002D32D1 /* Supporting Files */,
 			);
 			path = InMobiNativeRebootIOS;
@@ -134,45 +135,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3554C4B51D2A89F000AE6946 /* Experience */ = {
-			isa = PBXGroup;
-			children = (
-				357DE4131E940DE200C11035 /* BaseViewController */,
-				D17788791F56609B00A3761A /* BannerViewController.m */,
-				D17788781F56609B00A3761A /* BannerViewController.h */,
-				D177887B1F566F6A00A3761A /* InterstitialViewController.h */,
-				D177887C1F566F6A00A3761A /* InterstitialViewController.m */,
-				352596451D75953100AD6BBA /* InfeedViewController.h */,
-				352596431D75953100AD6BBA /* InfeedViewController.m */,
-				357DE4171E940E6100C11035 /* SplashViewController.h */,
-				357DE4181E940E6100C11035 /* SplashViewController.m */,
-				35AD4D031EA6966700F2AEB7 /* PrerollViewController.h */,
-				35AD4D041EA6966700F2AEB7 /* PrerollViewController.m */,
-				352CFA511EA7919100187184 /* UINavigationController+Orientation.h */,
-				352CFA521EA7919100187184 /* UINavigationController+Orientation.m */,
-			);
-			name = Experience;
-			sourceTree = "<group>";
-		};
 		3554C4D01D2BB53700AE6946 /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
 				3554C4D11D2BB54A00AE6946 /* InFeedTableCell.h */,
 				3554C4D21D2BB54A00AE6946 /* InFeedTableCell.m */,
 				357DE41A1E94108F00C11035 /* InFeedTableCell.xib */,
-				3554C4D31D2BB54A00AE6946 /* SampleData.h */,
-				3554C4D41D2BB54A00AE6946 /* SampleData.m */,
+				3554C4D31D2BB54A00AE6946 /* InfeedData.h */,
+				3554C4D41D2BB54A00AE6946 /* InfeedData.m */,
 			);
 			name = DataObjects;
-			sourceTree = "<group>";
-		};
-		357DE4131E940DE200C11035 /* BaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				357DE4141E940E1B00C11035 /* BaseTableViewController.h */,
-				357DE4151E940E1B00C11035 /* BaseTableViewController.m */,
-			);
-			name = BaseViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +164,7 @@
 			);
 			name = InMobiNativeRebootIOS;
 			productName = ToDoListApp;
-			productReference = 357F97951E940C7400819391 /* InMobiNativeRebootIOS.app */;
+			productReference = 357F97951E940C7400819391 /* ImmobiSDK.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -244,9 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F42B811E9436EE00865D29 /* InFeedTableCell.xib in Resources */,
-				35366B931B4306CF002D32D1 /* Main.storyboard in Resources */,
 				35A44B5D1D466D57007889E3 /* Images.xcassets in Resources */,
-				35366B981B4306CF002D32D1 /* LaunchScreen.xib in Resources */,
 				35366BD91B430783002D32D1 /* Base.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,40 +228,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				357DE41C1E942F1C00C11035 /* SplashViewController.m in Sources */,
-				352CFA531EA7919100187184 /* UINavigationController+Orientation.m in Sources */,
-				35AD4D051EA6966700F2AEB7 /* PrerollViewController.m in Sources */,
-				352596461D75953100AD6BBA /* InfeedViewController.m in Sources */,
-				D177887A1F56609B00A3761A /* BannerViewController.m in Sources */,
+				1C128EF72428BB4300744D3F /* MainTableViewController.m in Sources */,
 				35366B8D1B4306CF002D32D1 /* AppDelegate.m in Sources */,
 				3554C4D51D2BB54A00AE6946 /* InFeedTableCell.m in Sources */,
+				1C128EF12428BB4300744D3F /* RewardViewController.m in Sources */,
+				1C128EF42428BB4300744D3F /* SplashViewController.m in Sources */,
+				1C128EF62428BB4300744D3F /* BannerViewController.m in Sources */,
 				35366B8A1B4306CF002D32D1 /* main.m in Sources */,
-				D177887D1F566F6A00A3761A /* InterstitialViewController.m in Sources */,
-				357DE4161E940E1B00C11035 /* BaseTableViewController.m in Sources */,
-				3554C4D61D2BB54A00AE6946 /* SampleData.m in Sources */,
+				1C128EF22428BB4300744D3F /* InterstitialViewController.m in Sources */,
+				1C128EF52428BB4300744D3F /* InfeedTableViewController.m in Sources */,
+				3554C4D61D2BB54A00AE6946 /* InfeedData.m in Sources */,
+				1C128EF32428BB4300744D3F /* PrerollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		35366B911B4306CF002D32D1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35366B921B4306CF002D32D1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		35366B961B4306CF002D32D1 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35366B971B4306CF002D32D1 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		35366BA51B4306CF002D32D1 /* Debug */ = {
@@ -395,6 +346,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/InMobiNativeRebootIOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/InMobiNativeRebootIOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -402,8 +354,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ubercab.UberClient;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feeco.memory;
+				PRODUCT_NAME = ImmobiSDK;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,6 +375,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/InMobiNativeRebootIOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/InMobiNativeRebootIOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -430,8 +383,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ubercab.UberClient;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feeco.memory;
+				PRODUCT_NAME = ImmobiSDK;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

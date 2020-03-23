@@ -21,7 +21,6 @@
 		1C128EF72428BB4300744D3F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C128EEB2428BB4200744D3F /* MainTableViewController.m */; };
 		35366B8A1B4306CF002D32D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35366B891B4306CF002D32D1 /* main.m */; };
 		35366B8D1B4306CF002D32D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35366B8C1B4306CF002D32D1 /* AppDelegate.m */; };
-		35366BD91B430783002D32D1 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 35366BC91B430783002D32D1 /* Base.lproj */; };
 		3554C4D51D2BB54A00AE6946 /* InFeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3554C4D21D2BB54A00AE6946 /* InFeedTableCell.m */; };
 		3554C4D61D2BB54A00AE6946 /* InfeedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3554C4D41D2BB54A00AE6946 /* InfeedData.m */; };
 		35A44B5D1D466D57007889E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A44B5C1D466D57007889E3 /* Images.xcassets */; };
@@ -51,7 +50,6 @@
 		35366B891B4306CF002D32D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		35366B8B1B4306CF002D32D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35366B8C1B4306CF002D32D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		35366BC91B430783002D32D1 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		3554C4D11D2BB54A00AE6946 /* InFeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InFeedTableCell.h; sourceTree = "<group>"; };
 		3554C4D21D2BB54A00AE6946 /* InFeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InFeedTableCell.m; sourceTree = "<group>"; };
 		3554C4D31D2BB54A00AE6946 /* InfeedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfeedData.h; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			children = (
 				35A44B5C1D466D57007889E3 /* Images.xcassets */,
 				3554C4D01D2BB53700AE6946 /* DataObjects */,
-				35366BC91B430783002D32D1 /* Base.lproj */,
 				35366B8B1B4306CF002D32D1 /* AppDelegate.h */,
 				35366B8C1B4306CF002D32D1 /* AppDelegate.m */,
 				1C128EE92428BB4200744D3F /* BannerViewController.h */,
@@ -217,7 +214,6 @@
 			files = (
 				35F42B811E9436EE00865D29 /* InFeedTableCell.xib in Resources */,
 				35A44B5D1D466D57007889E3 /* Images.xcassets in Resources */,
-				35366BD91B430783002D32D1 /* Base.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
